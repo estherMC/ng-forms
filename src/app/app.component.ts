@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,13 +7,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('f') signupForm: NgForm;
+
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
 
   //Al afegit el ngForm a f, ja no és un HTMLFormElement, sinó NgForm
   // onSubmit(form: HTMLFormElement){
-  onSubmit(form: NgForm){
-    console.log(form);
+  // onSubmit(form: NgForm){
+  //   console.log(form);
+  // }
+
+  onSubmit(){
+    console.log(this.signupForm);
   }
 }
